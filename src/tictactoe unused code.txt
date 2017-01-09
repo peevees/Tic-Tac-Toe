@@ -1,0 +1,84 @@
+        //start main
+				/*                      ask p1 for human or bot opponent              */
+//        
+//        System.out.println("\n" + p1Name + 
+//                            ", Do you want to play against a human or a bot?");
+//        
+//        boolean checkBot = true;
+//        player player2;
+//        while(checkBot){
+//            String botQuestion = scan.nextLine();
+//            if(botQuestion.toLowerCase().contains("yes") | 
+//                    botQuestion.toLowerCase().contains("y"))
+//            {
+//                player2 = new bot("BOT");
+//                checkBot = false;
+//            }else if(botQuestion.toLowerCase().contains("no") | 
+//                    botQuestion.toLowerCase().contains("n") ){
+//                
+//        //--------------------------------------------------------------------//
+//        /*                      Create player 2  object                       */
+//                System.out.println("\n" + "Please input Player 2's name!");
+//                String name2 = scan.nextLine();
+//                player2 = new player(name2);
+//                String p2Name = player2.getName();
+//                System.out.println("player 2's name is: " + p2Name);
+//                String p1Pi = player1.getPiece();
+//                if(p1Pi == " X ")
+//                    {
+//                        player2.setPiece(" O ");
+//                    }else{
+//                        player2.setPiece(" X ");
+//                    }
+//                checkBot = false;
+//                
+//        //--------------------------------------------------------------------//
+//        /*                                else                                    */
+//            }else{
+//                System.out.println("Please only input yes or no");
+//            }
+//        }
+//        
+					//end main
+					//start board
+protected String[][] map;//the array of coordinates for the map
+//inside the constructor to create a map
+map = new String[Rows][Cols];
+/*                            get array                                   */
+public String[][] getArray(){
+		return cells;
+}
+/*method to print content of array just to see if array is cotains content*/
+public void printArray(){
+		for (int i = 0; i < cells.length; i++) {
+				for (int j = 0; j < cells.length; j++) {
+				System.out.println(cells[i][j]);
+				}
+		}
+}
+/*Draws an identical board but with coordinates for each cell inside 
+																																every cell*/
+public void drawMap(){
+		
+		for (int i = 0; i < map.length; i++) {
+				for(int j = 0; j < map.length; j++){
+						map[i][j] = (Integer.toString(i) + "," + Integer.toString(j));
+				}
+		}
+		for(int row=0; row < Rows; row++){
+				for(int col = 0; col < Cols; col++){
+						System.out.print(map[row][col]); //<-- here the content in the cells is printed
+						if (col < Cols - 1){
+								System.out.print("|"); //vertical line
+						}
+				}
+				System.out.println();
+				if(row < Rows - 1){
+						for(int k = 0; k < (Cols*4 -1); k++){// horizontal line of 4 dashes except the last one which is only 3 dashes
+								System.out.print("-");
+						}
+						System.out.println(); // adds a new epmty line after every horizontal line
+				}
+		}
+}
+					// end board
